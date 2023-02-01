@@ -1,4 +1,5 @@
 const { useEffect, useState } = React;
+const { render } = ReactDOM;
 
 function NewComponent() {
   const [data, setData] = useState([]);
@@ -30,10 +31,3 @@ function NewComponent() {
     </div>
   );
 }
-
-// TODO: exports pattern instead of inline usage.
-(function () {
-  setTimeout(function () {
-    ReactDOM.render(<NewComponent />, $("#pio-teaser-app")[0]);
-  }, 500); // Janky init code, perhaps you can refactor this!
-})();
