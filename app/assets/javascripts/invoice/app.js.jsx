@@ -5,14 +5,16 @@ function NewComponent() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    $.get("/invoice/index.json").done(function (json_data) {
-      console.log(
-        "FYI: Here's the full placements_teaser_data.json contents: ",
-        json_data
-      );
-      setData(json_data.toString());
-      setIsLoading(false);
-    });
+    fetch("/invoice/example.json")
+      .then((res) => res.json())
+      .then((json_data) => {
+        console.log(
+          "FYI: Here's the full placements_teaser_data.json contents: ",
+          json_data
+        );
+        setData(json_data.toString());
+        setIsLoading(false);
+      });
   });
 
   return (
