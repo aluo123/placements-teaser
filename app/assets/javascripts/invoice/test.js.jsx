@@ -1,3 +1,3 @@
 function NewComponent2() {
-    return <div>Hi Mom!</div>;
+  return <div>Hi Mom!</div>;
 }

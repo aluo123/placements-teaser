@@ -1,3 +1,3 @@
 document.addEventListener("DOMContentLoaded", () => {
-  render(<NewComponent />, document.getElementById("pio-teaser-app"));
+  ReactDOM.render(<App />, document.getElementById("pio-teaser-app"));
 });

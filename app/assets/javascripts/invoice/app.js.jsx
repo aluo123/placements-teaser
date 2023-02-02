@@ -1,7 +1,6 @@
 const { useEffect, useState } = React;
-const { render } = ReactDOM;
 
-function NewComponent() {
+function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -9,14 +8,11 @@ function NewComponent() {
     fetch("/invoice/example.json")
       .then((res) => res.json())
       .then((json_data) => {
-        console.log(
-          "FYI: Here's the full placements_teaser_data.json contents: ",
-          json_data
-        );
-        setData(json_data.toString());
+        console.log(json_data);
+        setData(json_data);
         setIsLoading(false);
       });
-  });
+  }, []);
 
   return (
     <div>
@@ -26,7 +22,7 @@ function NewComponent() {
           Loading React.js Component&hellip;
         </h3>
       ) : (
-        data
+        <Table data={data} />
       )}
     </div>
   );
