@@ -10,19 +10,22 @@ function Table({ data, columns }) {
 
   console.log(pages);
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          {columns.map((col) => {
-            return <th key={col.key}>{col.header}</th>;
+    <div>
+      <table className="table">
+        <thead>
+          <tr>
+            {columns.map((col) => {
+              return <th key={col.key}>{col.header}</th>;
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {currentPage.map((item) => {
+            return <DataRow key={item.id} item={item} columns={columns} />;
           })}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item) => {
-          return <DataRow key={item.id} item={item} columns={columns} />;
-        })}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+      <Pagination currentPageNum={currentPageNum} totalPages={totalPages} />
+    </div>
   );
 }
