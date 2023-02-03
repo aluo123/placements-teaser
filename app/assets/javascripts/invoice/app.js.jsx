@@ -5,7 +5,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/invoice/example.json")
+    fetch("/invoice/index.json")
       .then((res) => res.json())
       .then((json_data) => {
         console.log(json_data);
@@ -22,7 +22,7 @@ function App() {
           Loading React.js Component&hellip;
         </h3>
       ) : (
-        <Table data={data} />
+        <Table data={data} columns={COLUMN_CONFIGS} />
       )}
     </div>
   );
