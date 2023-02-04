@@ -19,13 +19,36 @@ function Pagination({ currentPageNum, totalPages, setCurrentPageNum }) {
       setCurrentPageNum(page);
     };
     return (
-      <li key={page} className="page-item">
+      <li
+        key={page}
+        className={`page-item ${page == currentPageNum ? "active" : ""}`}
+      >
         <a onClick={handleClick} className="page-link">
           {page}
         </a>
       </li>
     );
   });
+
+  if (minRange > 2) {
+    pagesShown.splice(
+      1,
+      0,
+      <li role="separator" className="divider disabled page-item">
+        <a>&hellip;</a>
+      </li>
+    );
+  }
+
+  if (maxRange < totalPages) {
+    pagesShown.splice(
+      pagesShown.length - 1,
+      0,
+      <li role="separator" className="divider disabled page-item">
+        <a>&hellip;</a>
+      </li>
+    );
+  }
 
   const handlePrevious = () =>
     setCurrentPageNum((page) => Math.max(1, page - 1));
