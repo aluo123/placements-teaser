@@ -11,7 +11,8 @@ function Table({ data, columns }) {
   console.log(pages);
   return (
     <div className="container-fluid">
-      <table className="table">
+      <PageSizeSelector pageSize={pageSize} setPageSize={setPageSize} />
+      <table className="table table-bordered">
         <thead>
           <tr>
             {columns.map((col) => {

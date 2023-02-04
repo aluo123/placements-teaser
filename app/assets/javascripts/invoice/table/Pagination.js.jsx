@@ -34,7 +34,11 @@ function Pagination({ currentPageNum, totalPages, setCurrentPageNum }) {
     pagesShown.splice(
       1,
       0,
-      <li role="separator" className="divider disabled page-item">
+      <li
+        key="min-elipsis"
+        role="separator"
+        className="divider disabled page-item"
+      >
         <a>&hellip;</a>
       </li>
     );
@@ -44,7 +48,11 @@ function Pagination({ currentPageNum, totalPages, setCurrentPageNum }) {
     pagesShown.splice(
       pagesShown.length - 1,
       0,
-      <li role="separator" className="divider disabled page-item">
+      <li
+        key="max-elipsis"
+        role="separator"
+        className="divider disabled page-item"
+      >
         <a>&hellip;</a>
       </li>
     );
