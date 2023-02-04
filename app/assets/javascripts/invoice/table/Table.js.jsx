@@ -10,7 +10,7 @@ function Table({ data, columns }) {
 
   console.log(pages);
   return (
-    <div>
+    <div className="container-fluid">
       <table className="table">
         <thead>
           <tr>
@@ -25,7 +25,11 @@ function Table({ data, columns }) {
           })}
         </tbody>
       </table>
-      <Pagination currentPageNum={currentPageNum} totalPages={totalPages} />
+      <Pagination
+        currentPageNum={currentPageNum}
+        totalPages={totalPages}
+        setCurrentPageNum={setCurrentPageNum}
+      />
     </div>
   );
 }
