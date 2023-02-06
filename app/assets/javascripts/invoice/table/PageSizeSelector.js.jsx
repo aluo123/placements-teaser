@@ -1,7 +1,6 @@
 function PageSizeSelector({ pageSize, setPageSize }) {
-  const options = [1, 5, 10, 25, 50];
+  const options = [5, 10, 25, 50];
   const handleSelect = (e) => {
-    console.log(e);
     setPageSize(e.target.value);
   };
   return (
