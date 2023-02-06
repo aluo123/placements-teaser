@@ -2,7 +2,7 @@ class InvoiceController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render json: placements_teaser_data }
+      format.json { render json: Invoice.all }
     end
   end
 
