@@ -4,8 +4,14 @@ function PageSizeSelector({ pageSize, setPageSize }) {
     setPageSize(e.target.value);
   };
   return (
-    <div>
-      <select value={pageSize} className="form-control" onChange={handleSelect}>
+    <div className="input-group">
+      <span className="input-group-addon">Items Per Page</span>
+      <select
+        value={pageSize}
+        className="form-control"
+        name="page-size-selector"
+        onChange={handleSelect}
+      >
         {options.map((option) => {
           return (
             <option key={option} value={option}>

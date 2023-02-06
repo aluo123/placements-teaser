@@ -22,7 +22,7 @@ function App() {
           Loading React.js Component&hellip;
         </h3>
       ) : (
-        <Table data={data} columns={COLUMN_CONFIGS} />
+        <TableContainer data={data} columns={COLUMN_CONFIGS} />
       )}
     </div>
   );
