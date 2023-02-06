@@ -1,13 +1,45 @@
-const a = {
-  id: 1,
-  campaign_id: 1,
-  campaign_name:
-    "Satterfield-Turcotte : Multi-channelled next generation analyzer - e550",
-  line_item_name: "Awesome Plastic Car - 6475",
-  booked_amount: 430706.6871532752,
-  actual_amount: 401966.50504006835,
-  adjustments: 1311.0731142230268,
+const ID_COLUMN = {
+  header: "ID",
+  key: "id",
+  render: defaultCellRenderer,
 };
+const CAMPAIGN_ID_COLUMN = {
+  header: "Campaign ID",
+  key: "campaign_id",
+  render: defaultCellRenderer,
+};
+const CAMPAIGN_NAME_COLUMN = {
+  header: "Campaign Name",
+  key: "campaign_name",
+  render: defaultCellRenderer,
+};
+const LINE_ITEM_COLUMN = {
+  header: "Line Item Name",
+  key: "line_item_name",
+  render: defaultCellRenderer,
+};
+const BOOKED_AMOUNT_COLUMN = {
+  header: "Booked Amount",
+  key: "booked_amount",
+  render: currencyCellRenderer,
+};
+const ACTUAL_AMOUNT_COLUMN = {
+  header: "Actual Amount",
+  key: "actual_amount",
+  render: currencyCellRenderer,
+};
+const ADJUSTMENTS_COLUMN = {
+  header: "Adjustments",
+  key: "adjustments",
+  render: currencyCellRenderer,
+};
+
+const FILTER_COLUMNS = [
+  ID_COLUMN,
+  CAMPAIGN_ID_COLUMN,
+  CAMPAIGN_NAME_COLUMN,
+  LINE_ITEM_COLUMN,
+];
 
 const COLUMN_CONFIGS = [
   {

@@ -1,10 +1,22 @@
-function Header({ filter, pageSize, setFilter, setPageSize }) {
+function Header({
+  filter,
+  filterColumn,
+  pageSize,
+  setFilter,
+  setFilterColumn,
+  setPageSize,
+}) {
   return (
-    <div className="row">
-      <div className="col-sm-6">
-        <Filter filter={filter} setFilter={setFilter} />
+    <div className="row table-header">
+      <div className="col-sm-8">
+        <Filter
+          filter={filter}
+          filterColumn={filterColumn}
+          setFilter={setFilter}
+          setFilterColumn={setFilterColumn}
+        />
       </div>
-      <div className="col-sm-6">
+      <div className="col-sm-4">
         <PageSizeSelector pageSize={pageSize} setPageSize={setPageSize} />
       </div>
     </div>
