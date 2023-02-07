@@ -14,7 +14,6 @@ function TableContainer({ data, columns }) {
   const currentPage = pages[currentPageNum - 1];
   const totalPages = pages.length;
 
-  console.log(pages);
   return (
     <div className="container-fluid">
       <Header

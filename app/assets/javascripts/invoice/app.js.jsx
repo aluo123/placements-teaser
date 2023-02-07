@@ -12,6 +12,7 @@ function App() {
         setData(json_data);
         setIsLoading(false);
       });
+    updateAdjustments();
   }, []);
 
   return (
