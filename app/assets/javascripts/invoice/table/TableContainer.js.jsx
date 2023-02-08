@@ -1,6 +1,6 @@
 const { useState } = React;
 
-function TableContainer({ data, columns }) {
+function TableContainer({ data, columns, onSave }) {
   const [currentPageNum, setCurrentPageNum] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [filter, setFilter] = useState("");
@@ -28,7 +28,7 @@ function TableContainer({ data, columns }) {
         <EmptyTable />
       ) : (
         <div>
-          <Table data={currentPage} columns={columns} />
+          <Table data={currentPage} columns={columns} onSave={onSave} />
           <Pagination
             currentPageNum={currentPageNum}
             totalPages={totalPages}

@@ -12,8 +12,11 @@ function App() {
         setData(json_data);
         setIsLoading(false);
       });
-    updateAdjustments();
   }, []);
+
+  const handleSave = (item) => {
+    updateAdjustments(item);
+  };
 
   return (
     <div>
@@ -23,7 +26,11 @@ function App() {
           Loading React.js Component&hellip;
         </h3>
       ) : (
-        <TableContainer data={data} columns={COLUMN_CONFIGS} />
+        <TableContainer
+          data={data}
+          columns={COLUMN_CONFIGS}
+          onSave={handleSave}
+        />
       )}
     </div>
   );

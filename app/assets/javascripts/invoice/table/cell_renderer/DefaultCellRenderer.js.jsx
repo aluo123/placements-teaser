@@ -1,3 +1,3 @@
-function defaultCellRenderer(field) {
-  return <div>{field}</div>;
+function defaultCellRenderer(item, key) {
+  return <div>{item[key]}</div>;
 }

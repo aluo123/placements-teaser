@@ -1,4 +1,4 @@
-function Table({ data, columns }) {
+function Table({ data, columns, onSave }) {
   return (
     <table className="table table-bordered">
       <thead>
@@ -10,7 +10,14 @@ function Table({ data, columns }) {
       </thead>
       <tbody>
         {data.map((item) => {
-          return <DataRow key={item.id} item={item} columns={columns} />;
+          return (
+            <DataRow
+              key={item.id}
+              item={item}
+              columns={columns}
+              onSave={onSave}
+            />
+          );
         })}
       </tbody>
     </table>

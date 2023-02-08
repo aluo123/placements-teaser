@@ -31,7 +31,12 @@ const ACTUAL_AMOUNT_COLUMN = {
 const ADJUSTMENTS_COLUMN = {
   header: "Adjustments",
   key: "adjustments",
-  render: currencyCellRenderer,
+  render: adjustmentsRenderer,
+};
+const ACTION_COLUMN = {
+  header: "Actions",
+  key: "actions",
+  render: actionsRenderer,
 };
 
 const FILTER_COLUMNS = [
@@ -42,39 +47,11 @@ const FILTER_COLUMNS = [
 ];
 
 const COLUMN_CONFIGS = [
-  {
-    header: "ID",
-    key: "id",
-    render: defaultCellRenderer,
-  },
-  {
-    header: "Campaign ID",
-    key: "campaign_id",
-    render: defaultCellRenderer,
-  },
-  {
-    header: "Campaign Name",
-    key: "campaign_name",
-    render: defaultCellRenderer,
-  },
-  {
-    header: "Line Item Name",
-    key: "line_item_name",
-    render: defaultCellRenderer,
-  },
-  {
-    header: "Booked Amount",
-    key: "booked_amount",
-    render: currencyCellRenderer,
-  },
-  {
-    header: "Actual Amount",
-    key: "actual_amount",
-    render: currencyCellRenderer,
-  },
-  {
-    header: "Adjustments",
-    key: "adjustments",
-    render: currencyCellRenderer,
-  },
+  ID_COLUMN,
+  CAMPAIGN_ID_COLUMN,
+  CAMPAIGN_NAME_COLUMN,
+  LINE_ITEM_COLUMN,
+  BOOKED_AMOUNT_COLUMN,
+  ACTUAL_AMOUNT_COLUMN,
+  ADJUSTMENTS_COLUMN,
 ];
