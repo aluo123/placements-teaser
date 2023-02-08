@@ -1,4 +1,4 @@
-const DEBOUNCE_TIME = 100;
+const DEBOUNCE_TIME = 300;
 
 function Filter({
   filter,
@@ -7,15 +7,11 @@ function Filter({
   onFilterColumnChange,
 }) {
   const [localFilter, setLocalFilter] = useState(filter);
-  const debouncedFilter = _.debounce(
-    (newFilter) => onFilterChange(newFilter),
-    DEBOUNCE_TIME
-  );
 
   const handleSearch = (e) => {
     const newFilter = e.target.value;
     setLocalFilter(newFilter);
-    debouncedFilter(newFilter);
+    onFilterChange(newFilter);
   };
   return (
     <div className="input-group">

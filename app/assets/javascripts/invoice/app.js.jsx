@@ -36,6 +36,8 @@ function App() {
     setPageSize(pageSize);
   };
 
+  const handleFilterChange = _.debounce(setFilter, 300);
+
   return (
     <div>
       {isLoading ? (
@@ -52,7 +54,7 @@ function App() {
           filterColumn={filterColumn}
           pageSize={pageSize}
           totalPages={totalPages}
-          onFilterChange={setFilter}
+          onFilterChange={handleFilterChange}
           onFilterColumnChange={setFilterColumn}
           onSave={handleSave}
           onPageChange={setPage}
