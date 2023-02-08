@@ -64,7 +64,7 @@ function Pagination({ currentPageNum, totalPages, setCurrentPageNum }) {
     setCurrentPageNum(Math.min(totalPages, currentPageNum + 1));
 
   return (
-    <nav aria-label="Page navigation" className="center-block">
+    <nav aria-label="Page navigation" className="pagination-flex">
       <ul className="pagination pagination-lg">
         <li className={`page-item ${currentPageNum == 1 ? "disabled" : ""}`}>
           <a

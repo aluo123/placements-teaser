@@ -28,6 +28,11 @@ function TableContainer({
         <EmptyTable />
       ) : (
         <div>
+          <Pagination
+            currentPageNum={currentPageNum}
+            totalPages={totalPages}
+            setCurrentPageNum={onPageChange}
+          />
           <Table data={currentPage} columns={columns} onSave={onSave} />
           <Pagination
             currentPageNum={currentPageNum}
