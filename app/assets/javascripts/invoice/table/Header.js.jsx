@@ -4,7 +4,7 @@ function Header({
   pageSize,
   setFilter,
   setFilterColumn,
-  setPageSize,
+  onPageSizeChange,
 }) {
   return (
     <div className="row table-header">
@@ -17,7 +17,10 @@ function Header({
         />
       </div>
       <div className="col-sm-4">
-        <PageSizeSelector pageSize={pageSize} setPageSize={setPageSize} />
+        <PageSizeSelector
+          pageSize={pageSize}
+          onPageSizeChange={onPageSizeChange}
+        />
       </div>
     </div>
   );

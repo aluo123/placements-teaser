@@ -33,11 +33,6 @@ const ADJUSTMENTS_COLUMN = {
   key: "adjustments",
   render: adjustmentsRenderer,
 };
-const ACTION_COLUMN = {
-  header: "Actions",
-  key: "actions",
-  render: actionsRenderer,
-};
 
 const FILTER_COLUMNS = [
   ID_COLUMN,

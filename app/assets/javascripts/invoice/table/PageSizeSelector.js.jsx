@@ -1,7 +1,7 @@
-function PageSizeSelector({ pageSize, setPageSize }) {
+function PageSizeSelector({ pageSize, onPageSizeChange }) {
   const options = [5, 10, 25, 50];
   const handleSelect = (e) => {
-    setPageSize(e.target.value);
+    onPageSizeChange(e.target.value);
   };
   return (
     <div className="input-group">

@@ -1,18 +1,21 @@
 const { useState } = React;
 
-function TableContainer({ data, columns, onSave }) {
-  const [currentPageNum, setCurrentPageNum] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+function TableContainer({
+  currentPage,
+  totalPages,
+  currentPageNum,
+  pageSize,
+  columns,
+  onPageSizeChange,
+  onSave,
+  onPageChange,
+}) {
   const [filter, setFilter] = useState("");
   const [filterColumn, setFilterColumn] = useState(CAMPAIGN_NAME_COLUMN);
 
-  data = data.filter((item) =>
+  currentPage = currentPage.filter((item) =>
     item[filterColumn.key].toString().includes(filter)
   );
-
-  const pages = _.chunk(data, pageSize);
-  const currentPage = pages[currentPageNum - 1];
-  const totalPages = pages.length;
 
   return (
     <div className="container-fluid">
@@ -21,7 +24,7 @@ function TableContainer({ data, columns, onSave }) {
         filterColumn={filterColumn}
         pageSize={pageSize}
         setFilter={setFilter}
-        setPageSize={setPageSize}
+        onPageSizeChange={onPageSizeChange}
         setFilterColumn={setFilterColumn}
       />
       {totalPages == 0 ? (
@@ -32,7 +35,7 @@ function TableContainer({ data, columns, onSave }) {
           <Pagination
             currentPageNum={currentPageNum}
             totalPages={totalPages}
-            setCurrentPageNum={setCurrentPageNum}
+            setCurrentPageNum={onPageChange}
           />
         </div>
       )}

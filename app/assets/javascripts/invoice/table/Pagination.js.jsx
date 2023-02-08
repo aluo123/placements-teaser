@@ -59,9 +59,9 @@ function Pagination({ currentPageNum, totalPages, setCurrentPageNum }) {
   }
 
   const handlePrevious = () =>
-    setCurrentPageNum((page) => Math.max(1, page - 1));
+    setCurrentPageNum(Math.max(1, currentPageNum - 1));
   const handleNext = () =>
-    setCurrentPageNum((page) => Math.min(totalPages, page + 1));
+    setCurrentPageNum(Math.min(totalPages, currentPageNum + 1));
 
   return (
     <nav aria-label="Page navigation" className="center-block">

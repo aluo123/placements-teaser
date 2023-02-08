@@ -1,8 +1,13 @@
 class InvoiceController < ApplicationController
   def index
+    invoices = Invoice.paginate(:page => params[:page], :per_page => params[:page_size])
     respond_to do |format|
       format.html
-      format.json { render json: Invoice.all }
+      format.json { render json: {
+        invoices: invoices,
+        page: invoices.current_page,
+        pages: invoices.total_pages
+      } }
     end
   end
 
