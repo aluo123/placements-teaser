@@ -2,8 +2,8 @@ function Header({
   filter,
   filterColumn,
   pageSize,
-  setFilter,
-  setFilterColumn,
+  onFilterChange,
+  onFilterColumnChange,
   onPageSizeChange,
 }) {
   return (
@@ -12,8 +12,8 @@ function Header({
         <Filter
           filter={filter}
           filterColumn={filterColumn}
-          setFilter={setFilter}
-          setFilterColumn={setFilterColumn}
+          onFilterChange={onFilterChange}
+          onFilterColumnChange={onFilterColumnChange}
         />
       </div>
       <div className="col-sm-4">

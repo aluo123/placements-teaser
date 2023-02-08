@@ -1,4 +1,4 @@
-function FilterColumnSelector({ filterColumn, setFilterColumn }) {
+function FilterColumnSelector({ filterColumn, onFilterColumnChange }) {
   return (
     <div className="dropdown input-group-btn">
       <button
@@ -15,7 +15,7 @@ function FilterColumnSelector({ filterColumn, setFilterColumn }) {
       <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
         {FILTER_COLUMNS.map((column) => {
           const handleClick = () => {
-            setFilterColumn(column);
+            onFilterColumnChange(column);
           };
 
           return (

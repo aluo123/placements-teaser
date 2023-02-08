@@ -1,12 +1,27 @@
-function Filter({ filter, filterColumn, setFilter, setFilterColumn }) {
+const DEBOUNCE_TIME = 100;
+
+function Filter({
+  filter,
+  filterColumn,
+  onFilterChange,
+  onFilterColumnChange,
+}) {
+  const [localFilter, setLocalFilter] = useState(filter);
+  const debouncedFilter = _.debounce(
+    (newFilter) => onFilterChange(newFilter),
+    DEBOUNCE_TIME
+  );
+
   const handleSearch = (e) => {
-    setFilter(e.target.value);
+    const newFilter = e.target.value;
+    setLocalFilter(newFilter);
+    debouncedFilter(newFilter);
   };
   return (
     <div className="input-group">
       <FilterColumnSelector
         filterColumn={filterColumn}
-        setFilterColumn={setFilterColumn}
+        onFilterColumnChange={onFilterColumnChange}
       />
       <span className="input-group-addon">
         <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -16,7 +31,7 @@ function Filter({ filter, filterColumn, setFilter, setFilterColumn }) {
         className="form-control"
         name="search"
         type="search"
-        value={filter}
+        value={localFilter}
       />
     </div>
   );

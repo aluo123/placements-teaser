@@ -7,10 +7,12 @@ function App() {
   const [pageSize, setPageSize] = useState(10);
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("");
+  const [filterColumn, setFilterColumn] = useState(CAMPAIGN_NAME_COLUMN);
 
   useEffect(() => {
     const params = new URLSearchParams({
       filter,
+      filter_column: filterColumn.key,
       page,
       page_size: pageSize,
     });
@@ -23,7 +25,7 @@ function App() {
         console.log(json_data);
         setIsLoading(false);
       });
-  }, [filter, page, pageSize]);
+  }, [filter, filterColumn, page, pageSize]);
 
   const handleSave = (item) => {
     updateAdjustments(item);
@@ -47,9 +49,11 @@ function App() {
           currentPage={data}
           currentPageNum={page}
           filter={filter}
+          filterColumn={filterColumn}
           pageSize={pageSize}
           totalPages={totalPages}
           onFilterChange={setFilter}
+          onFilterColumnChange={setFilterColumn}
           onSave={handleSave}
           onPageChange={setPage}
           onPageSizeChange={handlePageSizeChange}

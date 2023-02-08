@@ -1,6 +1,14 @@
 class InvoiceController < ApplicationController
   def index
-    invoices = Invoice.paginate(:page => params[:page], :per_page => params[:page_size])
+    filter = params[:filter]
+    filter_column = params[:filter_column]
+    if filter == ""
+      invoices = Invoice.all
+    else
+      invoices = Invoice.where("#{filter_column} like '%#{filter}%'")
+    end
+    
+    invoices = invoices.paginate(:page => params[:page], :per_page => params[:page_size])
     respond_to do |format|
       format.html
       format.json { render json: {

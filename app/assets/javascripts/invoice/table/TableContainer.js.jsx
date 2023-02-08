@@ -6,28 +6,25 @@ function TableContainer({
   currentPageNum,
   pageSize,
   columns,
-  onPageSizeChange,
+  filter,
+  filterColumn,
+  onFilterChange,
+  onFilterColumnChange,
   onSave,
   onPageChange,
+  onPageSizeChange,
 }) {
-  const [filter, setFilter] = useState("");
-  const [filterColumn, setFilterColumn] = useState(CAMPAIGN_NAME_COLUMN);
-
-  currentPage = currentPage.filter((item) =>
-    item[filterColumn.key].toString().includes(filter)
-  );
-
   return (
     <div className="container-fluid">
       <Header
         filter={filter}
         filterColumn={filterColumn}
         pageSize={pageSize}
-        setFilter={setFilter}
+        onFilterChange={onFilterChange}
         onPageSizeChange={onPageSizeChange}
-        setFilterColumn={setFilterColumn}
+        onFilterColumnChange={onFilterColumnChange}
       />
-      {totalPages == 0 ? (
+      {currentPage.length == 0 ? (
         <EmptyTable />
       ) : (
         <div>
